@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCUIT", "CUIT\CCUIT.csproj", "{5790C62C-FD70-40C0-9135-26B19CCD6660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CUITTests", "CUITTests\CUITTests.csproj", "{E041B212-4410-467A-84AC-64B9E483DD7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5790C62C-FD70-40C0-9135-26B19CCD6660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5790C62C-FD70-40C0-9135-26B19CCD6660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5790C62C-FD70-40C0-9135-26B19CCD6660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5790C62C-FD70-40C0-9135-26B19CCD6660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E041B212-4410-467A-84AC-64B9E483DD7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E041B212-4410-467A-84AC-64B9E483DD7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E041B212-4410-467A-84AC-64B9E483DD7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {298DFA7D-4C73-4911-8E1B-3243BDF55B1B}
+	EndGlobalSection
+EndGlobal
