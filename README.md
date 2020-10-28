@@ -1,6 +1,10 @@
 # CCUIT
 Objeto simple para validaciones de CUIT argentino.
 
+## Instalación con nuget
+
+    Install-Package CCUIT
+
 ## Uso
 
 ### Creación de objeto
