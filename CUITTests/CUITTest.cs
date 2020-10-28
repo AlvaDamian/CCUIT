@@ -1,4 +1,4 @@
-using CUIT;
+using CCUIT;
 
 using NUnit.Framework;
 
@@ -9,13 +9,13 @@ namespace CUITTests
         [Test]
         public void InicializaSinErrores()
         {
-            CUIT.CUIT cuit = new CUIT.CUIT(1, 2);
+            new CUIT(1, 2);
         }
 
         [Test]
         public void IndicaCUITInvalidoCuandoSeInicializaTipoConNegativo()
         {
-            CUIT.CUIT cuit = new CUIT.CUIT(-2, 3);
+            CUIT cuit = new CUIT(-2, 3);
 
             Assert.IsFalse(cuit.IsValido);
         }
@@ -23,7 +23,7 @@ namespace CUITTests
         [Test]
         public void IndicaCUITInvalidoCuandoSeInicializaTipoConCero()
         {
-            CUIT.CUIT cuit = new CUIT.CUIT(0, 3);
+            CUIT cuit = new CUIT(0, 3);
             Assert.IsFalse(cuit.IsValido);
         }
 
@@ -31,7 +31,7 @@ namespace CUITTests
         public void AsignaTipoProvistoEnConstructor()
         {
             int tipo = 20;
-            CUIT.CUIT cuit = new CUIT.CUIT(tipo, 3);
+            CUIT cuit = new CUIT(tipo, 3);
 
             Assert.AreEqual(tipo, cuit.Tipo);
         }
@@ -40,7 +40,7 @@ namespace CUITTests
         public void AsignaNumeroDocumentoProvistoEnConstructor()
         {
             int numeroDocumento = 12345678;
-            CUIT.CUIT cuit = new CUIT.CUIT(1, numeroDocumento);
+            CUIT cuit = new CUIT(1, numeroDocumento);
 
             Assert.AreEqual(numeroDocumento, cuit.NumeroDocumento);
         }
@@ -51,9 +51,9 @@ namespace CUITTests
             //34-99903208-9: Número de CUIT de la ciudad de BS. AS.
             int tipo = 34;
             int numeroDocumento = 99903208;
-            int digitoVerificador = CUIT.CUIT.CalcularDigitoVerificador(tipo, numeroDocumento);
+            int digitoVerificador = CUIT.CalcularDigitoVerificador(tipo, numeroDocumento);
 
-            CUIT.CUIT cuit = new CUIT.CUIT(tipo, numeroDocumento);
+            CUIT cuit = new CUIT(tipo, numeroDocumento);
 
             Assert.AreEqual(digitoVerificador, cuit.DigitoVerificador);
         }
@@ -64,10 +64,9 @@ namespace CUITTests
             //34-99903208-9: Número de CUIT de la ciudad de BS. AS.
             int tipo = 34;
             int numeroDocumento = 99903208;
-            int digitoVerificador = CUIT.CUIT.CalcularDigitoVerificador(tipo, numeroDocumento);//9
             long numeroCUITCompleto = 34999032089;
 
-            CUIT.CUIT cuit = new CUIT.CUIT(tipo, numeroDocumento);
+            CUIT cuit = new CUIT(tipo, numeroDocumento);
 
             Assert.AreEqual(numeroCUITCompleto, cuit.Numero);
         }
@@ -79,7 +78,7 @@ namespace CUITTests
             int tipo = 34;
             int numeroDocumento = 99903208;
             int digitoVerificador = 9;
-            int digitoVerificadorCalculado = CUIT.CUIT.CalcularDigitoVerificador(tipo, numeroDocumento);
+            int digitoVerificadorCalculado = CUIT.CalcularDigitoVerificador(tipo, numeroDocumento);
 
             Assert.AreEqual(digitoVerificador, digitoVerificadorCalculado);
         }
@@ -87,65 +86,65 @@ namespace CUITTests
         [Test]
         public void ValidarCUITInformaQueEsInvalidoCuandoElTipoEsNegativo()
         {
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(-1, 2, 3);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(-1, 2, 3);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(-34999032089);
+            resultado = CUIT.EsNumeroCUITValido(-34999032089);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("-34999032089");
+            resultado = CUIT.EsNumeroCUITValido("-34999032089");
             Assert.IsFalse(resultado.Valido);
         }
 
         [Test]
         public void ValidarCUITInformaQueEsInvalidoCuandoElTipoEsCero()
         {
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(0, 2, 3);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(0, 2, 3);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(999032089);
+            resultado = CUIT.EsNumeroCUITValido(999032089);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("999032089");
+            resultado = CUIT.EsNumeroCUITValido("999032089");
             Assert.IsFalse(resultado.Valido);
         }
 
         [Test]
         public void ValidarCUITInformaQueEsInvalidoCuandoElNumeroDocumentoEsNegativo()
         {
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(1, -2, 3);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(1, -2, 3);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(-1000000003);
+            resultado = CUIT.EsNumeroCUITValido(-1000000003);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("-1000000003");
+            resultado = CUIT.EsNumeroCUITValido("-1000000003");
             Assert.IsFalse(resultado.Valido);
         }
 
         [Test]
         public void ValidarCUITInformaQueEsInvalidoCuandoElNumeroDocumentoEsCero()
         {
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(1, 0, 3);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(1, 0, 3);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(34000000009);
+            resultado = CUIT.EsNumeroCUITValido(34000000009);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("34000000009");
+            resultado = CUIT.EsNumeroCUITValido("34000000009");
             Assert.IsFalse(resultado.Valido);
         }
 
         [Test]
         public void ValidarCUITInformaQueEsInvalidoCuandoElDigitoVerificadorEsNegativo()
         {
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(1, 2, -3);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(1, 2, -3);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(-34999032089);
+            resultado = CUIT.EsNumeroCUITValido(-34999032089);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("-34999032089");
+            resultado = CUIT.EsNumeroCUITValido("-34999032089");
             Assert.IsFalse(resultado.Valido);
         }
 
@@ -156,7 +155,7 @@ namespace CUITTests
             int numeroDocumento = 999045;
             int digitoVerificador = 9;
 
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(tipo, numeroDocumento, digitoVerificador);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(tipo, numeroDocumento, digitoVerificador);
 
             Assert.IsFalse(resultado.Valido);
             Assert.AreEqual(CodigoResultadoValidacion.CANTIDAD_DIGITOS_INCORRECTOS, resultado.CodigoResultado);
@@ -170,13 +169,13 @@ namespace CUITTests
             int numeroDocumento = 99903208;
             int digitoVerificador = 9 - 1;
 
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(tipo, numeroDocumento, digitoVerificador);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(tipo, numeroDocumento, digitoVerificador);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(34999032088);
+            resultado = CUIT.EsNumeroCUITValido(34999032088);
             Assert.IsFalse(resultado.Valido);
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("34999032088");
+            resultado = CUIT.EsNumeroCUITValido("34999032088");
             Assert.IsFalse(resultado.Valido);
         }
 
@@ -188,21 +187,21 @@ namespace CUITTests
             int numeroDocumento = 99903208;
             int digitoVerificador = 9;
 
-            ResultadoValidacion resultado = CUIT.CUIT.EsNumeroCUITValido(tipo, numeroDocumento, digitoVerificador);
+            ResultadoValidacion resultado = CUIT.EsNumeroCUITValido(tipo, numeroDocumento, digitoVerificador);
             
             Assert.IsTrue(resultado.Valido);
             Assert.AreEqual(CodigoResultadoValidacion.CUIT_VALIDO, resultado.CodigoResultado);
 
 
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido(34999032089);
+            resultado = CUIT.EsNumeroCUITValido(34999032089);
 
             Assert.IsTrue(resultado.Valido);
             Assert.AreEqual(CodigoResultadoValidacion.CUIT_VALIDO, resultado.CodigoResultado);
 
 
 
-            resultado = CUIT.CUIT.EsNumeroCUITValido("34999032089");
+            resultado = CUIT.EsNumeroCUITValido("34999032089");
 
             Assert.IsTrue(resultado.Valido);
             Assert.AreEqual(CodigoResultadoValidacion.CUIT_VALIDO, resultado.CodigoResultado);

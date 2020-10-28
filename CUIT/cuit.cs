@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CUIT
+namespace CCUIT
 {
     public sealed class CUIT
     {

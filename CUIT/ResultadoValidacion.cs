@@ -1,4 +1,4 @@
-﻿namespace CUIT
+﻿namespace CCUIT
 {
     /// <summary>
     /// Códigos del resultado de validación del CUIT.
