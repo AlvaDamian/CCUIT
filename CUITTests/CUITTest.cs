@@ -205,6 +205,14 @@ namespace CUITTests
 
             Assert.IsTrue(resultado.Valido);
             Assert.AreEqual(CodigoResultadoValidacion.CUIT_VALIDO, resultado.CodigoResultado);
+
+            resultado = CUIT.EsNumeroCUITValido("20227645394");
+            Assert.IsTrue(resultado.Valido);
+            Assert.AreEqual(CodigoResultadoValidacion.CUIT_VALIDO, resultado.CodigoResultado);
+
+            resultado = CUIT.EsNumeroCUITValido("27127268725");
+            Assert.IsTrue(resultado.Valido);
+            Assert.AreEqual(CodigoResultadoValidacion.CUIT_VALIDO, resultado.CodigoResultado);
         }
     }
 }

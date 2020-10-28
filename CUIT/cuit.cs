@@ -193,12 +193,13 @@ namespace CCUIT
              * La constante de multiplicación es en realidad 5432765432, pero
              * se invierte para facilitar el calculo.
              */
-            uint constanteMultiplicacion = 2345672345;
-            uint cuitSinDigitoVerificador = (uint)(tipo * 100000000 + numeroDocumento);
+            //uint constanteMultiplicacion = 2345672345;
+            long constanteMultiplicacion = 5432765432;
+            long cuitSinDigitoVerificador = (long)tipo * 100000000 + (long)numeroDocumento;
             int ret = 0;
 
             //Paso 1: Se multiplica cada digito por una constante y se suman los resultados.
-            while (constanteMultiplicacion / 10 > 0)
+            for (var i = 0; i < 10; i++)
             {
                 int resto = (int)(cuitSinDigitoVerificador % 10);
                 ret += ((int)(constanteMultiplicacion % 10)) * resto;
